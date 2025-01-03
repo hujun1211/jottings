@@ -1,9 +1,11 @@
-"use client";
+'use client'
 
-import Script from "next/script";
+import Script from 'next/script'
 
-const GoogleAnalytics = ({ id }: { id?: string }) => {
-  if (!id) return null;
+function GoogleAnalytics({ id }: { id?: string }) {
+  if (!id) {
+    return null
+  }
 
   return (
     <>
@@ -25,7 +27,7 @@ const GoogleAnalytics = ({ id }: { id?: string }) => {
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default GoogleAnalytics;
+export default GoogleAnalytics
