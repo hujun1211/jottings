@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/shadcn/ui/dialog'
+import { Separator } from '@/shadcn/ui/separator'
 import { Github } from 'lucide-react'
 import { LoginForm } from './login-form'
 
@@ -43,6 +44,7 @@ export function LoginModal({ children }: { children: React.ReactNode }) {
           <Button variant="outline">
             <span>Login with Google</span>
           </Button>
+          <Separator className="my-2" />
           <LoginForm />
         </div>
       </DialogContent>

@@ -1,6 +1,6 @@
 'use server'
 
-import type { LoginFormType } from '@/components/auth/login-form'
+import type { CodeFormSchemaType, EmailFormSchemaType } from '@/components/auth/login-form'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -30,13 +30,23 @@ export async function signInWithGithub() {
   }
 }
 
-export async function signInWithOTP(formdata: LoginFormType) {
+export async function signInWithOTP(formdata: EmailFormSchemaType) {
   const supabase = await createClient()
   const { data, error } = await supabase.auth.signInWithOtp({
     email: formdata.email,
-    options: {
-      shouldCreateUser: true,
-    },
+  })
+  return {
+    data,
+    error: error?.message ?? '',
+  }
+}
+
+export async function verifyOTP(formdata: CodeFormSchemaType & EmailFormSchemaType) {
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.verifyOtp({
+    email: formdata.email,
+    token: formdata.code,
+    type: 'email',
   })
   return {
     data,
