@@ -18,6 +18,11 @@ export async function signInWithGithub() {
     provider: 'github',
     options: {
       redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/callback`,
+      // 强制每次都重新请求授权
+      scopes: 'read:user',
+      queryParams: {
+        prompt: 'consent',
+      },
     },
   })
   if (data.url) {
