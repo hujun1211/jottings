@@ -2,6 +2,7 @@
 
 import type { CodeFormSchemaType, EmailFormSchemaType } from '@/components/auth/login-form'
 import { createClient } from '@/utils/supabase/server'
+// eslint-disable-next-line no-restricted-imports
 import { redirect } from 'next/navigation'
 
 export async function signOut() {

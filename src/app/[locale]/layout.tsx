@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale()
@@ -15,9 +16,11 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
+  // 客户端使用
+  const messages = await getMessages()
   return (
-    <div>
+    <NextIntlClientProvider messages={messages}>
       {children}
-    </div>
+    </NextIntlClientProvider>
   )
 }
