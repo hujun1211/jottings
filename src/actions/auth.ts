@@ -18,7 +18,7 @@ export async function signInWithGithub() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
     options: {
-      redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/callback`,
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/callback`,
       // 强制每次都重新请求授权
       scopes: 'read:user',
       queryParams: {

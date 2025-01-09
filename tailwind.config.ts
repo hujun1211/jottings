@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import typographyPlugin from '@tailwindcss/typography'
 import animatePlugin from 'tailwindcss-animate'
 
 const config: Config = {
@@ -60,15 +61,37 @@ const config: Config = {
       },
       keyframes: {
         'caret-blink': {
-          '0%,70%,100%': { opacity: '1' },
-          '20%,50%': { opacity: '0' },
+          '0%,70%,100%': {
+            opacity: '1',
+          },
+          '20%,50%': {
+            opacity: '0',
+          },
+        },
+        'marquee': {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(calc(-100% - var(--gap)))',
+          },
+        },
+        'marquee-vertical': {
+          from: {
+            transform: 'translateY(0)',
+          },
+          to: {
+            transform: 'translateY(calc(-100% - var(--gap)))',
+          },
         },
       },
       animation: {
         'caret-blink': 'caret-blink 1.25s ease-out infinite',
+        'marquee': 'marquee var(--duration) infinite linear',
+        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
       },
     },
   },
-  plugins: [animatePlugin, require('tailwindcss-animate')],
+  plugins: [animatePlugin, typographyPlugin],
 }
 export default config
