@@ -19,6 +19,9 @@ export default function Navbar({ user }: { user: User | undefined }) {
           <Button variant="link" asChild>
             <Link href="/docs">Documentation</Link>
           </Button>
+          <Button variant="link" asChild>
+            <Link href="/mdx-page">MDX</Link>
+          </Button>
         </div>
         <div className="flex items-center pr-2">
           <LanguageToggle />

@@ -5,7 +5,7 @@
   "private": true,
   "packageManager": "pnpm@9.15.3",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -30,6 +30,7 @@
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tanstack/react-query": "^5.62.10",
     "@tanstack/react-query-next-experimental": "^5.62.11",
+    "@vercel/analytics": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "github-markdown-css": "^5.8.1",
