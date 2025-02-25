@@ -12,7 +12,7 @@ const compat = new FlatCompat({
 
 export default antfu(
   {
-    ignores: ['supabase/*', 'src/shadcn/*', 'src/types/types_db.ts'],
+    ignores: ['src/shadcn/*', 'src/types/types_db.ts', 'cypress/*'],
     plugins: {
       'react-compiler': ReactCompiler,
     },
